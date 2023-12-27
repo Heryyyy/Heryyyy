@@ -53,7 +53,8 @@ public class BinarySearch {
             System.out.println(Arrays.toString(b));
         }
     }
-// find repeat number for leftmost right most
+
+    // find repeat number for leftmost right most
     public int repeatNumber(int[] a, int target) {
         int i = 0, j = a.length - 1;
         int can = -1;// To record the index
@@ -72,6 +73,19 @@ public class BinarySearch {
         return can;
     }
 
+    public int leftMost(int[] a, int target) {//最左侧的位置
+        int i = 0, j = a.length - 1;
+        while (i <= j) {
+            int m = (i + j) >>> 1;
+            if (a[m] < target) {
+                i = m + 1;
+            }
+            else {
+                j = m - 1;
+            }
+        }
+        return i;
+    }
 
     public static void main(String[] args) {
         {
@@ -88,3 +102,4 @@ public class BinarySearch {
         }
     }
 }
+
